@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
-export default function BasicRating() {
+export default function BasicRating(rate) {
   return (
     <Box
       sx={{
@@ -11,7 +11,7 @@ export default function BasicRating() {
       }}
     >
       <Typography component="legend">Predicted Rate</Typography>
-      <Rating name="read-only" value={5} readOnly />
+      <Rating name="read-only" value={rate.rate} readOnly />
     </Box>
   );
 }
