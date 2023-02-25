@@ -45,8 +45,9 @@ export default function FormPropsTextFields() {
         <Grid item>
           <TextField
             name="title"
+            id="filled-basic"
             label="Title"
-            margin="normal"
+            variant="filled"
             fullWidth
             value={formValues.title}
             onChange={handleInputChange}
@@ -60,6 +61,7 @@ export default function FormPropsTextFields() {
             onChange={handleInputChange}
             margin="normal"
             fullWidth
+            variant="filled"
           >
             <MenuItem value="Movie">Movie</MenuItem>
             <MenuItem value="Serie">Serie</MenuItem>
@@ -69,6 +71,7 @@ export default function FormPropsTextFields() {
             name="producer"
             label="Producer"
             margin="normal"
+            variant="filled"
             fullWidth
             value={formValues.producer}
             onChange={handleInputChange}
@@ -79,6 +82,7 @@ export default function FormPropsTextFields() {
             label="Studio"
             margin="normal"
             fullWidth
+            variant="filled"
             value={formValues.studio}
             onChange={handleInputChange}
           />
@@ -87,7 +91,7 @@ export default function FormPropsTextFields() {
         <Grid
           item
           xs={12}
-          style={{ width: '500px' }}
+          style={{ display: 'flex', justifyContent: 'center', paddingLeft: '290px' }}
         >
             <GenderField value={formValues.gender} onChange={handleGenderChange} />
         </Grid>
@@ -99,12 +103,14 @@ export default function FormPropsTextFields() {
           style={{ display: 'flex', alignItems: 'center' }}
         >
           <TextField
+           id="filled-multiline-static"
             name="description"
             label="Description"
             margin="normal"
             fullWidth
             multiline
-            rows={10}
+            variant="filled"
+            rows={8}
             value={formValues.description}
             onChange={handleInputChange}
             style={{ flex: 1 }}
