@@ -79,7 +79,7 @@ export default function GenderField(props) {
       value={props.value}
       style={{ width: 500 }}
       renderInput={(params) => (
-        <TextField {...params} label="Gender" placeholder="Select up to 5 tags" />
+        <TextField {...params} label="Gender" placeholder="Select up to 5 tags" variant="filled"/>
       )}
     />
   );

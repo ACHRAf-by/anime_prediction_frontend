@@ -65,8 +65,9 @@ export default function FormPropsTextFields(props) {
         <Grid item>
           <TextField
             name="title"
+            id="filled-basic"
             label="Title"
-            margin="normal"
+            variant="filled"
             fullWidth
             value={formValues.title}
             onChange={handleInputChange}
@@ -80,6 +81,7 @@ export default function FormPropsTextFields(props) {
             onChange={handleInputChange}
             margin="normal"
             fullWidth
+            variant="filled"
           >
             <MenuItem value={1}>Movie</MenuItem>
             <MenuItem value={0}>Serie</MenuItem>
@@ -89,6 +91,7 @@ export default function FormPropsTextFields(props) {
             name="producer"
             label="Producer"
             margin="normal"
+            variant="filled"
             fullWidth
             value={formValues.producer}
             onChange={handleInputChange}
@@ -99,6 +102,7 @@ export default function FormPropsTextFields(props) {
             label="Studio"
             margin="normal"
             fullWidth
+            variant="filled"
             value={formValues.studio}
             onChange={handleInputChange}
           />
@@ -107,7 +111,7 @@ export default function FormPropsTextFields(props) {
         <Grid
           item
           xs={12}
-          style={{ width: '500px' }}
+          style={{ display: 'flex', justifyContent: 'center', paddingLeft: '290px' }}
         >
             <GenderField value={formValues.gender} onChange={handleGenderChange} />
         </Grid>
@@ -119,12 +123,14 @@ export default function FormPropsTextFields(props) {
           style={{ display: 'flex', alignItems: 'center' }}
         >
           <TextField
+           id="filled-multiline-static"
             name="description"
             label="Description"
             margin="normal"
             fullWidth
             multiline
-            rows={10}
+            variant="filled"
+            rows={8}
             value={formValues.description}
             onChange={handleInputChange}
             style={{ flex: 1 }}
