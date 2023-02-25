@@ -9,7 +9,6 @@ pipeline {
         
         stage('Clone'){
             steps{
-                sh 'whoami'
                 git branch: 'dev', credentialsId: 'jenkins-backend', url: 'git@github.com:Atheros7/anime_list_frontend.git'
                 sh "git branch -D staging || true"
                 sh "git checkout -b staging"                
