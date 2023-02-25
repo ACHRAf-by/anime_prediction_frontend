@@ -28,8 +28,6 @@ export default function FormPropsTextFields(props) {
     setFormValues({ ...formValues, gender: value });
   };
 
-  var invocation = new XMLHttpRequest();
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
