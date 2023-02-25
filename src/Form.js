@@ -32,7 +32,7 @@ export default function FormPropsTextFields(props) {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
     
-    fetch('http://localhost:5000/api/prediction', {
+    fetch('http://anime-backend.azurewebsites.net/api/prediction', {
         method: 'POST',
         mode: 'cors',
         headers: {
