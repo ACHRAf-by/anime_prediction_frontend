@@ -31,8 +31,10 @@ export default function FormPropsTextFields(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
+    
     fetch('http://localhost:5000/api/prediction', {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json'
         },
