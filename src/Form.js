@@ -6,12 +6,15 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import GenderField from './GenderInput';
 
-export default function FormPropsTextFields() {
+export default function FormPropsTextFields(props) {
+
+    const {setRate} = props
+
   const [formValues, setFormValues] = React.useState({
     title: '',
     gender: [],
     description: '',
-    type: 'Movie',
+    type: 0,
     producer: '',
     studio: '',
   });
@@ -28,6 +31,23 @@ export default function FormPropsTextFields() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
+    fetch('http://localhost:5000/api/prediction', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: formJSON
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Do something with the response data, e.g. update state
+          console.log(data)
+          setRate(data.result)
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error(error)
+        })
     console.log(formJSON);
   };
 
@@ -61,8 +81,8 @@ export default function FormPropsTextFields() {
             margin="normal"
             fullWidth
           >
-            <MenuItem value="Movie">Movie</MenuItem>
-            <MenuItem value="Serie">Serie</MenuItem>
+            <MenuItem value={1}>Movie</MenuItem>
+            <MenuItem value={0}>Serie</MenuItem>
           </TextField>
 
           <TextField
