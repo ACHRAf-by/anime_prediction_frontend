@@ -71,8 +71,8 @@ export default function FormPropsTextFields(props) {
             fullWidth
             value={formValues.title}
             onChange={handleInputChange}
-          />
-
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+            />
           <TextField
             name="type"
             select
@@ -82,6 +82,8 @@ export default function FormPropsTextFields(props) {
             margin="normal"
             fullWidth
             variant="filled"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+
           >
             <MenuItem value={1}>Movie</MenuItem>
             <MenuItem value={0}>Serie</MenuItem>
@@ -95,6 +97,8 @@ export default function FormPropsTextFields(props) {
             fullWidth
             value={formValues.producer}
             onChange={handleInputChange}
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+
           />
 
           <TextField
@@ -105,6 +109,7 @@ export default function FormPropsTextFields(props) {
             variant="filled"
             value={formValues.studio}
             onChange={handleInputChange}
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
           />
         </Grid>
 
@@ -113,7 +118,9 @@ export default function FormPropsTextFields(props) {
           xs={12}
           style={{ display: 'flex', justifyContent: 'center', paddingLeft: '290px' }}
         >
-            <GenderField value={formValues.gender} onChange={handleGenderChange} />
+            <GenderField 
+              value={formValues.gender} onChange={handleGenderChange}
+             />
         </Grid>
 
         <Grid
@@ -133,7 +140,7 @@ export default function FormPropsTextFields(props) {
             rows={8}
             value={formValues.description}
             onChange={handleInputChange}
-            style={{ flex: 1 }}
+            style={{flex:1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
           />
         </Grid>
 
