@@ -12,7 +12,7 @@ function App() {
       <Grid item>
         <Typography>
           <h1> Anime Rating</h1>
-          <p>Enter anime informations and get a predicition</p>
+          <p>Enter anime informations and get a prediction</p>
         </Typography>
       </Grid>
       <Grid item container justifyContent="center">
