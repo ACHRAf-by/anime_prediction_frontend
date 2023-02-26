@@ -32,7 +32,7 @@ export default function FormPropsTextFields(props) {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
     
-    fetch('https://anime-backend.azurewebsites.net/api/prediction', {
+    fetch('http:///anime-backend.azurewebsites.net/api/prediction', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -69,11 +69,14 @@ export default function FormPropsTextFields(props) {
             name="title"
             id="filled-basic"
             label="Title"
+            inputProps={{
+              'data-cy': 'title-field', // add the data-cy attribute here
+            }}
             variant="filled"
             fullWidth
             value={formValues.title}
             onChange={handleInputChange}
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}       
             />
           <TextField
             name="type"
@@ -85,10 +88,10 @@ export default function FormPropsTextFields(props) {
             fullWidth
             variant="filled"
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
-
+            data-cy="type-field"
           >
-            <MenuItem value={1}>Movie</MenuItem>
-            <MenuItem value={0}>Serie</MenuItem>
+            <MenuItem value={1}  >Movie</MenuItem>
+            <MenuItem value={0}  >Serie</MenuItem>
           </TextField>
 
           <TextField
@@ -100,7 +103,9 @@ export default function FormPropsTextFields(props) {
             value={formValues.producer}
             onChange={handleInputChange}
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
-
+            inputProps={{
+              'data-cy': 'producer-field', // add the data-cy attribute here
+            }}   
           />
 
           <TextField
@@ -112,6 +117,9 @@ export default function FormPropsTextFields(props) {
             value={formValues.studio}
             onChange={handleInputChange}
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+            inputProps={{
+              'data-cy': 'studio-field', // add the data-cy attribute here
+            }}   
           />
         </Grid>
 
@@ -121,7 +129,8 @@ export default function FormPropsTextFields(props) {
           style={{ display: 'flex', justifyContent: 'center', paddingLeft: '290px' }}
         >
             <GenderField 
-              value={formValues.gender} onChange={handleGenderChange}
+              value={formValues.gender} 
+              onChange={handleGenderChange}
              />
         </Grid>
 
@@ -142,13 +151,16 @@ export default function FormPropsTextFields(props) {
             rows={8}
             value={formValues.description}
             onChange={handleInputChange}
-            style={{flex:1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+            style={{flex:1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}    
+            inputProps={{
+              'data-cy': 'description-field', // add the data-cy attribute here
+            }}     
           />
         </Grid>
 
         <Grid item xs={12} justifyContent="center" container>
           <Grid item textAlign="center">
-            <Button variant="contained" type="submit">
+            <Button variant="contained" type="submit" data-cy="mui-button">
               Submit
             </Button>
           </Grid>
