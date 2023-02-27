@@ -69,8 +69,9 @@ export default function GenderField(props) {
             checkedIcon={checkedIcon}
             style={{ marginRight: 8 }}
             checked={selected}
+            data-cy={`checkbox-field-${option}`}
           />
-          {option}
+          {option}    
         </li>
       )}
       onChange={(event, value) => {
@@ -79,7 +80,12 @@ export default function GenderField(props) {
       value={props.value}
       style={{ width: 500 }}
       renderInput={(params) => (
-        <TextField {...params} label="Gender" placeholder="Select up to 5 tags" variant="filled" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+        <TextField {...params} 
+        label="Gender" 
+        data-cy="gender-field"
+        placeholder="Select up to 5 tags" 
+        variant="filled" 
+        style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
         />
       )}
     />
