@@ -11,12 +11,12 @@ export default function FormPropsTextFields(props) {
     const {setRate} = props
 
   const [formValues, setFormValues] = React.useState({
-    title: '',
-    gender: [],
-    description: '',
-    type: 0,
-    producer: '',
-    studio: '',
+    Title: '',
+    Gender: [],
+    Synopsis: '',
+    Type: '',
+    Producer: '',
+    Studio: '',
   });
 
   const handleInputChange = (event) => {
@@ -25,14 +25,14 @@ export default function FormPropsTextFields(props) {
   };
 
   const handleGenderChange = (value) => {
-    setFormValues({ ...formValues, gender: value });
+    setFormValues({ ...formValues, Gender: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formJSON = JSON.stringify(formValues);
     
-    fetch('http:///anime-backend.azurewebsites.net/api/prediction', {
+    fetch('http:///localhost:5000/api/prediction', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -66,7 +66,7 @@ export default function FormPropsTextFields(props) {
       <Grid container spacing={2} justifyContent="center">
         <Grid item>
           <TextField
-            name="title"
+            name="Title"
             id="filled-basic"
             label="Title"
             inputProps={{
@@ -74,15 +74,15 @@ export default function FormPropsTextFields(props) {
             }}
             variant="filled"
             fullWidth
-            value={formValues.title}
+            value={formValues.Title}
             onChange={handleInputChange}
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}       
             />
           <TextField
-            name="type"
+            name="Type"
             select
             label="Type"
-            value={formValues.type}
+            value={formValues.Type}
             onChange={handleInputChange}
             margin="normal"
             fullWidth
@@ -90,17 +90,51 @@ export default function FormPropsTextFields(props) {
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
             data-cy="type-field"
           >
-            <MenuItem value={1}  >Movie</MenuItem>
-            <MenuItem value={0}  >Serie</MenuItem>
+            <MenuItem value="TV" >TV</MenuItem>
+            <MenuItem value="Movie" >Serie</MenuItem>
+            <MenuItem value="OVA" >OVA</MenuItem>
+            <MenuItem value="Special" >Special</MenuItem>
+            <MenuItem value="ONA" >ONA</MenuItem>
+            <MenuItem value="Music" >Music</MenuItem>
           </TextField>
 
           <TextField
-            name="producer"
+            name="Source"
+            select
+            label="Source"
+            value={formValues.source}
+            onChange={handleInputChange}
+            margin="normal"
+            fullWidth
+            variant="filled"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
+            data-cy="source-field"
+          >
+            <MenuItem value="Original" >Original</MenuItem>
+            <MenuItem value="Manga" >Manga</MenuItem>
+            <MenuItem value="Light novel" >Light novel</MenuItem>
+            <MenuItem value="Game" >Game</MenuItem>
+            <MenuItem value="Visual novel" >Visual novel</MenuItem>
+            <MenuItem value="4-koma manga" >4-koma manga</MenuItem>
+            <MenuItem value="Novel" >Novel</MenuItem>
+            <MenuItem value="Unknown" >Unknown</MenuItem>
+            <MenuItem value="Other" >Other</MenuItem>
+            <MenuItem value="Picture book" >Picture book</MenuItem>
+            <MenuItem value="Web manga" >Web manga</MenuItem>
+            <MenuItem value="Music" >Music</MenuItem>
+            <MenuItem value="Book" >Book</MenuItem>
+            <MenuItem value="Card game" >Card game</MenuItem>
+            <MenuItem value="Radio" >Radio</MenuItem>
+            <MenuItem value="Digital manga" >Digital manga</MenuItem>
+          </TextField>
+
+          <TextField
+            name="Producer"
             label="Producer"
             margin="normal"
             variant="filled"
             fullWidth
-            value={formValues.producer}
+            value={formValues.Producer}
             onChange={handleInputChange}
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
             inputProps={{
@@ -109,12 +143,12 @@ export default function FormPropsTextFields(props) {
           />
 
           <TextField
-            name="studio"
+            name="Studio"
             label="Studio"
             margin="normal"
             fullWidth
             variant="filled"
-            value={formValues.studio}
+            value={formValues.Studio}
             onChange={handleInputChange}
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}         
             inputProps={{
@@ -129,7 +163,7 @@ export default function FormPropsTextFields(props) {
           style={{ display: 'flex', justifyContent: 'center', paddingLeft: '290px' }}
         >
             <GenderField 
-              value={formValues.gender} 
+              value={formValues.Gender} 
               onChange={handleGenderChange}
              />
         </Grid>
@@ -142,18 +176,18 @@ export default function FormPropsTextFields(props) {
         >
           <TextField
            id="filled-multiline-static"
-            name="description"
-            label="Description"
+            name="Synopsis"
+            label="Synopsis"
             margin="normal"
             fullWidth
             multiline
             variant="filled"
             rows={8}
-            value={formValues.description}
+            value={formValues.Synopsis}
             onChange={handleInputChange}
             style={{flex:1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}    
             inputProps={{
-              'data-cy': 'description-field', // add the data-cy attribute here
+              'data-cy': 'synopsis-field', // add the data-cy attribute here
             }}     
           />
         </Grid>
