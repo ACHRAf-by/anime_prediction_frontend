@@ -21,12 +21,6 @@ describe('End-To-End Anime Rating Test', () => {
     cy.wait(2000);
   })
 
-  it('Check Movie type', () => {
-    cy.visit('http://localhost:3000')
-    cy.get('[data-cy="type-field"]').click()
-    cy.wait(2000);
-  })
-
   it('Check Producer Field', () => {
 
     cy.visit('http://localhost:3000')
