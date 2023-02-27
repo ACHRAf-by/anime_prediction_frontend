@@ -42,9 +42,20 @@ export default function FormPropsTextFields(props) {
       })
         .then(response => response.json())
         .then(data => {
+          console.log(data.result)
           // Do something with the response data, e.g. update state
-          console.log(data)
-          setRate(data.result)
+          if(data.result === 3){
+            setRate({rate: 5, judgment: 'Excellent'})
+          }
+          else if (data.result === 2){
+            setRate({rate: 4, judgment: 'Good'})
+          }
+          else if(data.result === 1){
+            setRate({rate: 3, judgment: 'Average'})
+          }
+          else{
+            setRate({rate: 1, judgment: 'Poor'})
+          }
         })
         .catch(error => {
           // Handle any errors

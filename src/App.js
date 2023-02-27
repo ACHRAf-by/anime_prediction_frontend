@@ -5,7 +5,7 @@ import BasicRating from './Rating';
 import './App.css'
 
 function App() {
-  const [rate, setRate] = React.useState(0)
+  const [rate, setRate] = React.useState({rate: 0, judgment: ''})
 
   return (
     <Grid container direction="column" spacing={2}>
@@ -22,6 +22,11 @@ function App() {
         <Typography variant="subtitle1" align="center">
           <BasicRating rate={rate} />
         </Typography>
+      </Grid>
+      <Grid>
+        <Typography>
+            <p>{rate.judgment}</p>
+          </Typography>
       </Grid>
     </Grid>
   );

@@ -13,7 +13,7 @@ export default function BasicRating(rate) {
       }}
     >
       <Typography component="legend">Predicted Rate</Typography>
-      <Rating name="read-only" value={rate.rate} readOnly />
+      <Rating name="read-only" value={rate.rate.rate} readOnly />
     </Box>
   );
 }
